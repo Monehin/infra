@@ -28,3 +28,7 @@ terraform.rc
 
 # Lock files
 .terraform.lock.hcl
+
+
+my-key-pair
+my-key-pair.pub
