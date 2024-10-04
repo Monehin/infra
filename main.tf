@@ -4,7 +4,7 @@ provider "aws" {
 resource "aws_instance" "example" {
   ami = "ami-0e8d228ad90af673b"
   instance_type = "t2.micro"
-  # key_name = aws_key_pair.my_key_pair.key_name
+  key_name = aws_key_pair.my_key_pair.key_name
 
   vpc_security_group_ids = [ aws_security_group.instance.id ]
 
@@ -39,7 +39,7 @@ resource "aws_security_group" "instance" {
   }
 }
 
-# resource "aws_key_pair" "my_key_pair" {
-#   key_name   = "my-key-pair"  # Name of your key pair
-#   public_key = file("${path.module}/my-key-pair.pub")
-# }
+resource "aws_key_pair" "my_key_pair" {
+  key_name   = "my-key-pair"  # Name of your key pair
+  public_key = file("${path.module}/my-key-pair.pub")
+}
